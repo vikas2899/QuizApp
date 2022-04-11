@@ -1,0 +1,128 @@
+.question {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+}
+
+.singleQuestion {
+    width: 95%;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid grey;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: center;
+    justify-content: space-around; 
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.singleOption {
+    width: 45%;
+    height: 50px;
+    padding: 15px 20px;
+    margin: 10px;
+    box-shadow: 0 0 2px black;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-weight: 400;
+}
+
+.controls {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-next {
+    width: 100px;
+    color: white;
+    background-color: rgb(136, 249, 128);
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    margin-left: 10px;
+    transition: transform 0.8s;
+}
+
+.btn-next:hover  {
+    transform : translateY(8px);
+}
+
+.btn-next:disabled {
+    color: white;
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.btn-finish {
+    background-color: rgb(26, 17, 95);
+    width: 100px;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: transform 0.8s;
+}
+
+.btn-finish:hover  {
+    transform : translateY(8px);
+}
+
+.disable {
+    color: white;
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .singleOption {
+        width: 100%;
+    }
+}
+
+.select {
+    background-color: rgb(102, 222, 102);
+    box-shadow: 0 0 1px black;
+    color: black;
+}
+
+.wrong {
+    background-color: rgb(243, 94, 94);
+    box-shadow: 0 0 1px black;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
