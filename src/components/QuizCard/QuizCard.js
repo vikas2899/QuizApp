@@ -4,7 +4,6 @@ import { Modal } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Questions from "../Questions/Questions";
-import Progress from "../Progress/Progress";
 import { useNavigate } from "react-router-dom";
 
 import "./QuizCard.css";
@@ -55,14 +54,11 @@ const QuizCard = ({ name, questions, score, setQuizData, setScore }) => {
 
   return (
     <>
-      <div className="subtitle"> Player, {name}</div>
+      <div className="subtitle"> Welcome, {name}</div>
       <div className="quizInfo">
         <p>Category : {questions[currentQuestion].category}</p>
         <p>Difficulty : {questions[currentQuestion].difficulty}</p>
         <p>Score : {score}</p>
-      </div>
-      <div className="progress-bar">
-        <Progress progress={progress} />
       </div>
       <div className="quiz">
         {questions ? (

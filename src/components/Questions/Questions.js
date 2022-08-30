@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import parser from "html-react-parser";
 import { Alert } from "@mui/material";
 import "./Questions.css";
 
@@ -37,7 +38,7 @@ const Questions = ({
   };
 
   const handleNext = () => {
-    if (currentQuestion == 9 && selected) {
+    if (currentQuestion === 9 && selected) {
       setFinish(true);
       handleProgress();
       return;
@@ -60,11 +61,21 @@ const Questions = ({
 
   return (
     <div className="question">
-      <h3>Question {currentQuestion + 1}</h3>
       <div className="singleQuestion">
-        <h4>{questions[currentQuestion].question}</h4>
+        <div className="question-container">
+          <div>
+            <b>
+              QUESTION {currentQuestion + 1} OF {questions.length}:
+            </b>
+          </div>
+          <div>
+            <p className="question-text">
+              {parser(questions[currentQuestion].question)}
+            </p>
+          </div>
+        </div>
         <div className="options">
-          {options.map((opt) => {
+          {options.map((opt, index) => {
             return (
               <button
                 key={opt}
@@ -72,7 +83,10 @@ const Questions = ({
                 className={`singleOption ${selected && handleSelect(opt)}`}
                 disabled={selected}
               >
-                {opt}
+                <span>
+                  <b>{index + 1}.</b>
+                </span>{" "}
+                <span className="opt-value">{parser(opt)}</span>
               </button>
             );
           })}

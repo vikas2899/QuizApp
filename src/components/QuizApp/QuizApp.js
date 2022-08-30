@@ -3,7 +3,6 @@ import QuizCard from "../QuizCard/QuizCard";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import quiz from "../../api/quiz";
-import { getDisplayName } from "@mui/utils";
 
 const QuizApp = ({ isAllowed }) => {
   const navigate = useNavigate();

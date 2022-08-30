@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Start.css";
 import axios from "axios";
+import Banner from "../../ques.jpeg";
 
 const Start = () => {
   const navigate = useNavigate();
@@ -65,70 +66,74 @@ const Start = () => {
   };
 
   return (
-    <div className="main-menu-container">
-      {!catLoading ? (
-        <>
-          <TextField
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-            style={{ width: 400, marginBottom: 10 }}
-            value={username}
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={selectedCat}
-            onChange={(e) => handleCategory(e)}
-            style={{ width: 400, marginBottom: 10 }}
-            label="Category"
-            required
-          >
-            {categories.map((cat) => (
-              <MenuItem
-                key={cat}
-                value={cat}
-                style={{ width: 400, marginBottom: 10 }}
+    <div className="start-container">
+      <div className="main-menu-container">
+        <div className="main-inputs">
+          {!catLoading ? (
+            <>
+              <TextField
+                id="outlined-basic"
+                label="Name"
+                variant="outlined"
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
+                required
+                className="text-field"
+                style={{ marginBottom: 10 }}
+              />
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={selectedCat}
+                onChange={(e) => handleCategory(e)}
+                label="Category"
+                required
+                className="text-field"
               >
-                {cat}
-              </MenuItem>
-            ))}
-          </Select>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={difficulty}
-            label="Difficulty"
-            onChange={(e) => handleDifficulty(e)}
-            style={{ width: 400 }}
-            required
-          >
-            <MenuItem key="Easy" value="Easy" style={{ width: 400 }}>
-              Easy
-            </MenuItem>
-            <MenuItem key="Medium" value="Medium" style={{ width: 400 }}>
-              Medium
-            </MenuItem>
-            <MenuItem key="Hard" value="Hard" style={{ width: 400 }}>
-              Hard
-            </MenuItem>
-          </Select>
-          <Button
-            variant="contained"
-            style={{ width: 400, marginTop: 10 }}
-            onClick={() => handleSubmit()}
-          >
-            Start
-          </Button>
-          {error ? (
-            <Alert severity="warning" style={{ width: 400, marginTop: 10 }}>
-              Please select all the options.
-            </Alert>
+                {categories.map((cat) => (
+                  <MenuItem key={cat} value={cat} className="text-field">
+                    {cat}
+                  </MenuItem>
+                ))}
+              </Select>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={difficulty}
+                label="Difficulty"
+                onChange={(e) => handleDifficulty(e)}
+                className="text-field"
+                required
+              >
+                <MenuItem key="Easy" value="Easy" style={{ width: 400 }}>
+                  Easy
+                </MenuItem>
+                <MenuItem key="Medium" value="Medium" style={{ width: 400 }}>
+                  Medium
+                </MenuItem>
+                <MenuItem key="Hard" value="Hard" style={{ width: 400 }}>
+                  Hard
+                </MenuItem>
+              </Select>
+              <Button
+                variant="contained"
+                className="text-field"
+                onClick={() => handleSubmit()}
+              >
+                Start
+              </Button>
+              {error ? (
+                <Alert severity="warning" style={{ width: 400, marginTop: 10 }}>
+                  Please select all the options.
+                </Alert>
+              ) : null}
+            </>
           ) : null}
-        </>
-      ) : null}
+        </div>
+      </div>
+      <div className="image-container">
+        <img src={Banner} alt="quiz-img" className="banner-img" />
+      </div>
     </div>
   );
 };

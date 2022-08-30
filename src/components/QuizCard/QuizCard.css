@@ -8,6 +8,7 @@
   margin-left: 48px;
   margin-top: 25px;
   margin-bottom: 25px;
+  font-size: 22px;
 }
 
 .quizInfo {
@@ -37,6 +38,10 @@
 @media (max-width: 600px) {
   .subtitle {
       text-align: center;
+  }
+  .quizInfo {
+    flex-direction: column;
+    padding-left: 20px;
   }
 
 }
